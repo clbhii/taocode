@@ -45,3 +45,17 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+.metadata
+.recommenders
+RemoteSystemsTempFiles
+dubbo/.settings
+dubbo/target
+dubbo/.classpath
+dubbo/.project
+fastjson/.settings
+fastjson/target
+fastjson/.classpath
+fastjson/.project
+*.class
+
+
