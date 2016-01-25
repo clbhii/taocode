@@ -19,5 +19,5 @@
     <dubbo:protocol name="rmi" port="1099" />
 
 	<bean id="helloService" class="com.cl.dubbo.HelloServiceImpl"/>
-	<dubbo:service interface="com.cl.dubbo.HelloService" ref="helloService"  protocol="rmi" version="1.0.0" /> <!-- 增加暴露远程服务配置 -->
+	<dubbo:service interface="com.cl.dubbo.HelloService" ref="helloService"  protocol="dubbo" version="1.0.0" /> <!-- 增加暴露远程服务配置 -->
 </beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans        
+    http://www.springframework.org/schema/beans/spring-beans.xsd        
+    http://code.alibabatech.com/schema/dubbo        
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="za_clsbss_serivce"  />
+ 
+   <dubbo:registry address="zookeeper://10.10.13.6:2181" protocol="zookeeper" />
+	<dubbo:protocol name="dubbo" port="5000" />
+
+    <dubbo:service ref="loanCarInfoService" 
+                   interface="com.cgw360.cls.api.inloan.ILoanCarInfoService"
+                   group="cls-service" version="1.0.0"/>
+                   
+    <dubbo:service ref="licensePlateInfoService" 
+                   interface="com.cgw360.cls.api.inloan.ILicensePlateInfoService"
+                   group="cls-service" version="1.0.0"/>
+                   
+    <dubbo:service ref="licensePlateInfoVoService" 
+                   interface="com.cgw360.cls.api.inloan.ILicensePlateInfoVoService"
+                   group="cls-service" version="1.0.0"/> 
+                        
+    <dubbo:service ref="pledgeInfoService" 
+                   interface="com.cgw360.cls.api.inloan.IPledgeInfoService"
+                   group="cls-service" version="1.0.0"/> 
+
+    <dubbo:service ref="loanContractInfoService" 
+                   interface="com.cgw360.cls.api.inloan.ILoanContractInfoService"
+                   group="cls-service" version="1.0.0"/>   
+                   
+    <dubbo:service ref="loanContractRepayPlanService" 
+                   interface="com.cgw360.cls.api.inloan.ILoanContractRepayPlanService"
+                   group="cls-service" version="1.0.0"/>
+                          
+    <dubbo:service ref="bankRemittanceInfoService" 
+                   interface="com.cgw360.cls.api.inloan.IBankRemittanceInfoService"
+                   group="cls-service" version="1.0.0"/> 
+                                   
+    <dubbo:service ref="repaymentCardInfoService" 
+                   interface="com.cgw360.cls.api.inloan.IRepaymentCardInfoService"
+                   group="cls-service" version="1.0.0"/> 
+</beans>

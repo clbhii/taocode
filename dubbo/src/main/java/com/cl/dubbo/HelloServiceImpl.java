@@ -14,6 +14,17 @@ public class HelloServiceImpl implements HelloService{
 		return map;
 	}
 
+	public void testException(String name) throws Exception{
+		throw new Exception("fail");
+	}
+
+	public void addUser(User user) {
+		System.out.println(user);
+	}
+
+	public void addBadUser(BadUser badUser) {
+		System.out.println(badUser);
+	}
 	
 	
 }
