@@ -1,8 +1,9 @@
 package com.cl.dubbo.zookeeper;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.util.HashMap;
+import java.util.Map;
 
-import com.cl.dubbo.BadUser;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ZooConsumer {
 
@@ -14,8 +15,18 @@ public class ZooConsumer {
         ZooService zooService = (ZooService)context.getBean("zooService");
 //        String result = zooService.sayHello("1");
 //        System.out.println(result);
-        zooService.addBadUser(new BadUser());
-
+//        zooService.addBadUser(new BadUser());
+        
+        Map<String, Object> map = new HashMap<String, Object> ();
+		for(int i = 0; i < 100; i++) {
+			map.put("a" + i , "ff" + i);
+		}
+        long begin = System.currentTimeMillis();
+        zooService.addA(new A());
+        System.out.println("cost:" + (System.currentTimeMillis() - begin));
+        begin = System.currentTimeMillis();
+        zooService.addMap(map);
+        System.out.println("cost:" + (System.currentTimeMillis() - begin));
 
     }
 }

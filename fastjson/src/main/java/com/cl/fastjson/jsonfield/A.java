@@ -2,7 +2,10 @@ package com.cl.fastjson.jsonfield;
 
 import java.util.Date;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializeConfig;
+import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
 /**
  * public @interface JSONField {
     // 配置序列化和反序列化的顺序，1.1.42版本之后才支持
@@ -37,6 +40,17 @@ public class A {
 		this.id = id;
 	}
 	
+	public static void main(String[] args) {
+		A1 a1 = new A1();
+		a1.date = new Date();
+		a1.date1 = new Date();
+		System.out.println(JSON.toJSONString(a1));
+		
+		SerializeConfig mapping = new SerializeConfig();
+        mapping.put(Date.class, new SimpleDateFormatSerializer("yyyy-MM-dd")); //yyyy-MM-dd
+		System.out.println(JSON.toJSONString(a1,mapping));
+	}
+	
 	
 }
 
@@ -47,6 +61,8 @@ class A1 {
     // 配置date序列化和反序列使用yyyyMMdd日期格式
     @JSONField(format="yyyyMMdd")
     public Date date;
+    
+    public Date date1;
     
     public int getId() {return id;}
     public void setId(int value) {this.id = id;}
