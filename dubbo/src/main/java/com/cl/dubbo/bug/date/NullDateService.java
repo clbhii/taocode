@@ -1,4 +1,4 @@
-package com.cl.dubbo.question.nulldate;
+package com.cl.dubbo.bug.date;
 
 public interface NullDateService {
 

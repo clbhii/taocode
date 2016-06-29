@@ -1,4 +1,4 @@
-package com.cl.dubbo.question.nulldate;
+package com.cl.dubbo.bug.date;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -6,6 +6,8 @@ import java.sql.Date;
 public class NullDate implements Serializable{
 	
 	private String name;
+	
+	private java.util.Date utilDate;
 
 	private Date date;
 	
@@ -23,6 +25,14 @@ public class NullDate implements Serializable{
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public java.util.Date getUtilDate() {
+		return utilDate;
+	}
+
+	public void setUtilDate(java.util.Date utilDate) {
+		this.utilDate = utilDate;
 	}
 	
 	

@@ -1,13 +1,11 @@
-package com.cl.dubbo;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.cl.dubbo.timeout;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Consumer {
 	   public static void main(String[] args) throws Exception {
-	        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"remote-consumer.xml"});
+		   String contextFilePath = Consumer.class.getPackage().getName().replace('.', '/') + "/hello-consumer.xml";
+	        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {contextFilePath});
 	        context.start();
 	 
 	        HelloService helloService = (HelloService)context.getBean("helloService"); // 获取远程服务代理
