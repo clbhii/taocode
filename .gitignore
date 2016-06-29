@@ -59,3 +59,7 @@ fastjson/.project
 *.class
 
 
+druid/.classpath
+druid/.project
+druid/.settings/org.eclipse.jdt.core.prefs
+druid/.settings/org.eclipse.m2e.core.prefs
