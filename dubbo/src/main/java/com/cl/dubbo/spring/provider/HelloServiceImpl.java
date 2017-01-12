@@ -14,5 +14,19 @@ public class HelloServiceImpl implements HelloService{
 		
 		return name + "hello" + user.getUserName();
 	}
+	
+	
+	public String sayHello(String name, String name1) {
+		return name1 + "hello" + user.getUserName();
+	}
+
+
+	@Override
+	public String sayHello(Integer age) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 }
