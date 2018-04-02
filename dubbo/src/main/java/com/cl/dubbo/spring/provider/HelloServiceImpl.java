@@ -21,7 +21,6 @@ public class HelloServiceImpl implements HelloService{
 	}
 
 
-	@Override
 	public String sayHello(Integer age) {
 		// TODO Auto-generated method stub
 		return null;
