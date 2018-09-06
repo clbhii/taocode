@@ -29,6 +29,27 @@ public class HTTPTest {
 	}
 
 	@Test
+	public void test4() throws Exception {
+		// 创建一个与服务器的连接
+		ZooKeeper zk = new ZooKeeper("localhost:2181", 100000, new Watcher() {
+			// 监控所有被触发的事件
+			public void process(WatchedEvent event) {
+				System.out.println("已经触发了" + event.getType() + "事件！");
+			}
+		});
+//		zk.addAuthInfo("digest","read:souche-read".getBytes());
+		String dir = "/";
+//		String dir = "/dubbo/com.souche.consumer.loan.facade.lease.Order4LeaseService";
+//		String dir = "/classes";
+//		String dir = "/doc";
+		
+		
+		list(zk, dir);
+		// 关闭连接
+		zk.close();
+	}
+	
+	@Test
 	public void test5() throws Exception {
 		// 创建一个与服务器的连接
 		ZooKeeper zk = new ZooKeeper("stable.zk.scsite.net:2181", 100000, new Watcher() {
@@ -38,8 +59,11 @@ public class HTTPTest {
 			}
 		});
 		zk.addAuthInfo("digest","read:souche-read".getBytes());
-		//String dir = "/dubbo/com.souche.consumer.loan.facade.order.ConsumerLoanOrderService";
-		String dir = "/dubbo/com.souche.consumer.loan.facade.lease.Order4LeaseService";
+//		String dir = "/CAR_PLEDGE_LOAN";
+		String dir = "/dubbo/com.souche.car.pledge.loan.service.app.jz.IJiuZhongAppService";
+//		String dir = "/classes";
+//		String dir = "/doc";
+		
 		
 		list(zk, dir);
 		// 关闭连接
@@ -59,10 +83,10 @@ public class HTTPTest {
 	}
 	@Test
 	public void testString() throws Exception {
-		String url = "dubbo://10.255.15.92:20880/com.souche.consumer.loan.facade.order.ConsumerLoanOrderService?application=consumer-loan-service_test&default.export=true&default.retries=0&dubbo=2.6.6&export=true&generic=false&interface=com.souche.consumer.loan.facade.order.ConsumerLoanOrderService&pid=10936&revision=3.5.0-SNAPSHOT&side=provider&timestamp=1530759821734";
+		String url = "dubbo://172.17.41.46:20880/com.souche.car.pledge.loan.service.app.jz.IJiuZhongAppService?application=car-pledge-loan-service&default.export=true&default.retries=0&dubbo=2.6.6&export=true&generic=false&interface=com.souche.car.pledge.loan.service.app.jz.IJiuZhongAppService&pid=8955&revision=1.0.0-SNAPSHOT&side=provider&timeout=30000&timestamp=1536029870389";
         Map<String, String> paramMap = new HashMap<String, String>();
-        paramMap.put("orderId", "101236");
-        send(url, paramMap, "findByOrderId");
+        //paramMap.put("orderId", "101236");
+        send(url, paramMap, "listOrderContractTypeDTO");
 	}
 	
 	@Test
