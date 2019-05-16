@@ -2,6 +2,7 @@ package com.cl.fastjson.databind;
 
 import com.alibaba.fastjson.JSON;
 
+
 public class FastJsonTest {
 
 	public static void encodeAndDecodeTest() {
