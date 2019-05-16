@@ -24,7 +24,7 @@ public class FastJsonTest {
 
 		System.out.println(jsonString);
 		group = JSON.parseObject(jsonString, Group.class);
-		System.out.println(group);
+		System.out.println(JSON.toJSONString(group));
 	}
 	
 	public static void main(String[] args) {
